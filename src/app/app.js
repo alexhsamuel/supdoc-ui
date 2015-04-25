@@ -1,8 +1,8 @@
-angular.module('ngBoilerplate', [
+angular.module('supdoc', [
   'templates-app',
   'templates-common',
-  'ngBoilerplate.home',
-  'ngBoilerplate.about',
+  'supdoc.home',
+  'supdoc.about',
   'ui.router'
 ])
 
