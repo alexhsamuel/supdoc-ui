@@ -12,7 +12,7 @@
  * The dependencies block here is also where component dependencies should be
  * specified, as shown below.
  */
-angular.module( 'supdoc.home', [
+angular.module('supdoc.home', [
   'ui.router',
   'plusOne'
 ])
@@ -22,8 +22,8 @@ angular.module( 'supdoc.home', [
  * will handle ensuring they are all available at run-time, but splitting it
  * this way makes each module more "self-contained".
  */
-.config(function config( $stateProvider ) {
-  $stateProvider.state( 'home', {
+.config(function config($stateProvider) {
+  $stateProvider.state('home', {
     url: '/home',
     views: {
       "main": {
@@ -31,15 +31,13 @@ angular.module( 'supdoc.home', [
         templateUrl: 'home/home.tpl.html'
       }
     },
-    data:{ pageTitle: 'Home' }
-  });
+    data: { pageTitle: 'Home' }
+  })
 })
 
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'HomeCtrl', function HomeController( $scope ) {
+.controller('HomeCtrl', function HomeController($scope) {
 })
-
-;
 

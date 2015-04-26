@@ -281,6 +281,7 @@ module.exports = function ( grunt ) {
         asi: true,
         curly: true,
         immed: true,
+        laxbreak: true,
         newcap: true,
         noarg: true,
         sub: true,
