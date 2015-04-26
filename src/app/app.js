@@ -3,6 +3,7 @@ angular.module('supdoc', [
   'templates-common',
   'supdoc.home',
   'supdoc.about',
+  'supdoc.modules',
   'ui.router'
 ])
 
