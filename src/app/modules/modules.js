@@ -16,9 +16,10 @@ angular.module('supdoc.modules', [
 })
 
 .controller('ModulesCtrl', function ModulesController($scope, $http) {
-  $http.get('/assets/doc.json').then(
+  $http.get('/api/doc').then(
     function (resp) {
-      console.log('got', resp.data)
+      $scope.modules = resp.data.modules
+      $scope.moduleNames = Object.keys($scope.modules)
     }
   , function (resp) {
       console.log('error')
