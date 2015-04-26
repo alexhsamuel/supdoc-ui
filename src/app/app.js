@@ -7,8 +7,9 @@ angular.module('supdoc', [
   'ui.router'
 ])
 
-.config(function myAppConfig($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/home');
+.config(function myAppConfig($stateProvider, $locationProvider, $urlRouterProvider) {
+  $locationProvider.html5Mode(true)
+  $urlRouterProvider.otherwise('/home')
 })
 
 .run(function run() {

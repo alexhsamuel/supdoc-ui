@@ -4,14 +4,14 @@ angular.module('supdoc.modules', [
 
 .config(function ($stateProvider) {
   $stateProvider.state('modules', {
-    url: '/modules',
-    views: {
+    url: '/modules'
+  , views: {
       "main": {
-          controller: 'ModulesCtrl',
-          templateUrl: 'modules/modules.tpl.html'
+        controller: 'ModulesCtrl'
+      , templateUrl: 'modules/modules.tpl.html'
       }
-    },
-    data: { pageTitle: 'Modules' }
+    }
+  , data: { pageTitle: 'Modules' }
   })
 })
 
@@ -19,8 +19,8 @@ angular.module('supdoc.modules', [
   $http.get('/assets/doc.json').then(
     function (resp) {
       console.log('got', resp.data)
-    },
-    function (resp) {
+    }
+  , function (resp) {
       console.log('error')
     })
 })

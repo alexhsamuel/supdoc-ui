@@ -282,6 +282,7 @@ module.exports = function ( grunt ) {
         curly: true,
         immed: true,
         laxbreak: true,
+        laxcomma: true,
         newcap: true,
         noarg: true,
         sub: true,
