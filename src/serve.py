@@ -11,7 +11,7 @@ app = flask.Flask(__name__)
 
 @app.route('/api/doc')
 def api_test():
-    with open("/home/samuel/dev/supdoc/doc.json") as file:
+    with open(os.path.expanduser("~/dev/supdoc/doc.json")) as file:
         jso = json.load(file)
     return flask.jsonify(jso)
 
