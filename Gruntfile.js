@@ -279,7 +279,7 @@ module.exports = function ( grunt ) {
       ],
       options: {
         asi: true,
-        curly: true,
+        curly: false,
         immed: true,
         laxbreak: true,
         laxcomma: true,
