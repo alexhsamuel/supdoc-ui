@@ -34,7 +34,7 @@ module.factory 'api', ($http) ->
     get: (name) ->
       if name of modules
       then $q.when modules[name]
-      else (get "/api/modules/{encodeURI name}").then (data) ->
+      else (get "/api/modules/#{encodeURI name}").then (data) ->
         module = data.modules[name]
         assert module.name == name, 'got module with wrong name'
         modules[name] = module
