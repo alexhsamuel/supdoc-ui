@@ -1,6 +1,7 @@
 angular.module('supdoc', [
   'templates-app',
   'templates-common',
+  'supdoc.api',
   'supdoc.home',
   'supdoc.about',
   'supdoc.modules',
@@ -23,5 +24,4 @@ angular.module('supdoc', [
         $scope.pageTitle = toState.data.pageTitle
       }
     })
-});
-
+})

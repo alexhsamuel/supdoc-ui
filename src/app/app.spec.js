@@ -11,9 +11,9 @@ describe('AppCtrl', function() {
         = $controller('AppCtrl', { $location: $location, $scope: $scope })
     }))
 
-    it('should pass a dummy test', inject(function() {
-      expect(AppCtrl).toBeTruthy()
-    }))
+    // it('should pass a dummy test', inject(function() {
+    //   expect(AppCtrl).toBeTruthy()
+    // }))
   })
 })
 

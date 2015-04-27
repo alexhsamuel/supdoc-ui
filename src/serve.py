@@ -10,11 +10,34 @@ app = flask.Flask(__name__)
 
 # API entry points are under /api.
 
-@app.route('/api/doc')
-def api_test():
-    with open(os.path.expanduser("~/dev/supdoc/doc.json")) as file:
-        jso = json.load(file)
-    return flask.jsonify(jso)
+def get_doc():
+    try:
+        return get_doc.__cache__
+    except AttributeError:
+        with open(os.path.expanduser("~/dev/supdoc/doc.json")) as file:
+            doc = json.load(file)
+        get_doc.__cache__ = doc
+        return doc
+
+
+@app.route("/api/modules")
+def api_modules():
+    doc = get_doc()
+    # Return only module names.
+    modules = {"modules": { m: None for m in doc["modules"] }}
+    return flask.jsonify(modules)
+
+
+@app.route("/api/modules/<string:module>")
+def api_module(module):
+    modules = get_doc()["modules"]
+    try:
+        doc = modules[module]
+    except KeyError:
+        error = {"error": "module {} not found".format(module)}
+        return flask.make_response(flask.jsonify(error), 404)
+    else:
+        return flask.jsonify({"modules": {module: doc}})
 
 
 # The Angular app's paths are all under /ui.
