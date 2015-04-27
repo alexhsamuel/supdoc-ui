@@ -1,0 +1,16 @@
+<div class="module" ng-controller="ModuleCtrl">
+  Module
+  <h1>
+    {{doc.name}}
+  </h1>
+  <div class="docstring">
+    {{doc.docs.doc}}
+  </div>
+  <div class="dict">
+    <ul>
+      <li ng-repeat="(name, objDoc) in doc.dict">
+        {{name}} -> {{objDoc.name}}
+      </li>
+    </ul>
+  </div>
+</div>

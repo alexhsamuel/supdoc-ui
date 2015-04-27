@@ -1,10 +1,11 @@
 (angular.module 'supdoc', [
-  'templates-app',
-  'templates-common',
-  'supdoc.api',
-  'supdoc.home',
-  'supdoc.about',
-  'supdoc.modules',
+  'templates-app'
+  'templates-common'
+  'supdoc.api'
+  'supdoc.home'
+  'supdoc.about'
+  'supdoc.module'
+  'supdoc.modules'
   'ui.router'
 ])
 
