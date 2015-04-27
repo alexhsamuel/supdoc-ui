@@ -21,11 +21,14 @@
     <!-- font awesome from BootstrapCDN -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
+    <!-- Google font pack -->
+    <link href='http://fonts.googleapis.com/css?family=Neuton:300,400,700,400italic|Roboto:400,300,300italic,400italic,500italic,700,700italic,900,900italic,500|Roboto+Condensed:300italic,400italic,700italic,700,300,400|Inconsolata:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
     <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
-    <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
+    <link rel="stylesheet" type="text/css" href="/<%= file %>" /><% }); %>
 
     <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
-    <script type="text/javascript" src="<%= file %>"></script><% }); %>
+    <script type="text/javascript" src="/<%= file %>"></script><% }); %>
 
     <!-- it's stupid to have to load it here, but this is for the +1 button -->
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js">

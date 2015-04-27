@@ -9,7 +9,7 @@ angular.module('supdoc', [
 
 .config(function myAppConfig($stateProvider, $locationProvider, $urlRouterProvider) {
   $locationProvider.html5Mode(true)
-  $urlRouterProvider.otherwise('/home')
+  $urlRouterProvider.otherwise('/ui/home')
 })
 
 .run(function run() {

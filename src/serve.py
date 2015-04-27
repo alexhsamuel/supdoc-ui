@@ -1,13 +1,14 @@
+import argparse
 import flask
 import json
+import logging
 import os
 from   pathlib import Path
 
-top_path = Path(os.path.abspath(__file__)).parent.parent
-site_path = top_path / "build"
-
 app = flask.Flask(__name__)
 
+
+# API entry points are under /api.
 
 @app.route('/api/doc')
 def api_test():
@@ -16,19 +17,40 @@ def api_test():
     return flask.jsonify(jso)
 
 
-@app.route('/')
-@app.route('/<path:filename>')
-def api_default_path(filename="index.html"):
-    path = site_path / filename
-    # A request not for an extant file must be an Angular HTML5 route.
-    # Map it back to the SPA.
-    if not path.exists():
-        path = site_path / "index.html"
-    return flask.send_file(str(path))
+# The Angular app's paths are all under /ui.
+
+@app.route("/ui")
+@app.route("/ui/")
+@app.route("/ui/<path:filename>")
+def api_ui(filename=None):
+    return flask.send_file(str(site_path / "index.html"))
+
+
+# Everything else is served statically.
+
+@app.route("/<path:filename>")
+def api_static(filename):
+    return flask.send_from_directory(str(site_path), filename)
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--development", default=False, action="store_true",
+        help="run a development server")
+    args = parser.parse_args()
+
+    global site_path
+    top_path = Path(os.path.abspath(__file__)).parent.parent
+    if args.development:
+        site_path = top_path / "build"
+        app.debug = True
+    else:
+        site_path = top_path / "bin"
+
+    app.run()
 
 
 
 if __name__ == '__main__':
-    app.debug = True
-    app.run()
-
+    main()

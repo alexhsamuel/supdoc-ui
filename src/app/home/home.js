@@ -24,7 +24,7 @@ angular.module('supdoc.home', [
  */
 .config(function config($stateProvider) {
   $stateProvider.state('home', {
-    url: '/home',
+    url: '/ui/home',
     views: {
       "main": {
         controller: 'HomeCtrl',

@@ -4,7 +4,7 @@ angular.module('supdoc.modules', [
 
 .config(function ($stateProvider) {
   $stateProvider.state('modules', {
-    url: '/modules'
+    url: '/ui/modules'
   , views: {
       "main": {
         controller: 'ModulesCtrl'
