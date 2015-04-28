@@ -6,7 +6,7 @@
 
 .config ($stateProvider) ->
   $stateProvider.state 'module',
-    url: '/ui/module/{module}'
+    url: '/ui/modules/{module}'
     views:
       main:
         controller: 'ModuleCtrl'

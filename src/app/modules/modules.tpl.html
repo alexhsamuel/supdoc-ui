@@ -4,6 +4,6 @@
 
 <ul>
   <li ng-repeat="name in moduleNames">
-    {{name}}
+    <a ui-sref="module({module: name})">{{name}}</a>
   </li>
 </ul>

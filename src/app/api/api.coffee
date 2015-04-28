@@ -1,6 +1,6 @@
 module = angular.module 'supdoc.api', []
 
-module.factory 'api', ($http) ->
+module.factory 'api', ($http, $q) ->
   modules = {}
   gotModuleNames = false
 
