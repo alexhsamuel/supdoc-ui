@@ -18,6 +18,7 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-ngmin');
   grunt.loadNpmTasks('grunt-html2js');
+  grunt.loadNpmTasks('grunt-local-googlefont');
 
   /**
    * Load in our build configuration file.
@@ -91,6 +92,57 @@ module.exports = function ( grunt ) {
       '<%= build_dir %>', 
       '<%= compile_dir %>'
     ],
+
+    /**
+     * Download Google fonts locally.
+     *
+     * This only partly works.  After downloading the fonts, we have to manually,
+     * - Rename the .styl files to .css (not sure why).
+     * - Fix the paths in the .css files to the .woff files: remove the 'src'.
+     */
+    "local-googlefont": {
+      "inconsolata": {
+        "options": {
+          "family": "Inconsolata",
+          "sizes": [400, 700],
+          "cssDestination": "src/assets/googlefont/css",
+          "fontDestination": "src/assets/googlefont/fonts"
+        }
+      },
+      "lato": {
+        "options": {
+          "family": "Lato",
+          "sizes": [
+            300,400,700,900
+          ],
+          "cssDestination": "src/assets/googlefont/css",
+          "fontDestination": "src/assets/googlefont/fonts"
+        }
+      },
+      "neuton": {
+        "options": {
+          "family": "Neuton",
+          "sizes": [300, 400, 700, "400italic"],
+          "cssDestination": "src/assets/googlefont/css",
+          "fontDestination": "src/assets/googlefont/fonts"
+        }
+      },
+      "roboto": {
+        "options": {
+          "family": "Roboto",
+          "sizes": [100, 300, 400, 500, 700, "100italic", "300italic", "400italic", "500italic", "700italic"],
+          "cssDestination": "src/assets/googlefont/css",
+          "fontDestination": "src/assets/googlefont/fonts"
+        }
+      },
+      "roboto-condensed": {
+        "options": {
+          "family": "Roboto Condensed",
+          "sizes": [300, 400, "300italic", "400italic"],
+          "cssDestination": "src/assets/googlefont/css",
+          "fontDestination": "src/assets/googlefont/fonts"}
+      }
+    },
 
     /**
      * The `copy` task just copies files from A to B. We use it here to copy
@@ -550,6 +602,17 @@ module.exports = function ( grunt ) {
    * The default task is to build and compile.
    */
   grunt.registerTask( 'default', [ 'build', 'compile' ] );
+
+  /**
+   * The setup task performs one-time setup, including downloading assets.
+   */
+  grunt.registerTask( 'setup', [ 
+    'local-googlefont:inconsolata',
+    'local-googlefont:lato',
+    'local-googlefont:neuton',
+    'local-googlefont:roboto',
+    'local-googlefont:roboto-condensed'
+  ]);
 
   /**
    * The `build` task gets your app ready to run for development and testing.

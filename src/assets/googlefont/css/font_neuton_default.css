@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'Neuton';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Neuton Light'), local('Neuton-Light'), url('/assets/googlefont/fonts/Neuton_normal_300_default.woff') format('woff');
+}
+@font-face {
+  font-family: 'Neuton';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Neuton Regular'), local('Neuton-Regular'), url('/assets/googlefont/fonts/Neuton_normal_400_default.woff') format('woff');
+}
+@font-face {
+  font-family: 'Neuton';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Neuton Bold'), local('Neuton-Bold'), url('/assets/googlefont/fonts/Neuton_normal_700_default.woff') format('woff');
+}
+@font-face {
+  font-family: 'Neuton';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Neuton Italic'), local('Neuton-Italic'), url('/assets/googlefont/fonts/Neuton_italic_400_default.woff') format('woff');
+}

@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Inconsolata'), url('/assets/googlefont/fonts/Inconsolata_normal_400_default.woff') format('woff');
+}
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Inconsolata Bold'), local('Inconsolata-Bold'), url('/assets/googlefont/fonts/Inconsolata_normal_700_default.woff') format('woff');
+}

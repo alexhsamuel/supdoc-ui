@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), url('/assets/googlefont/fonts/Roboto Condensed_normal_300_default.woff') format('woff');
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Condensed'), local('RobotoCondensed-Regular'), url('/assets/googlefont/fonts/Roboto Condensed_normal_400_default.woff') format('woff');
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'), url('/assets/googlefont/fonts/Roboto Condensed_italic_300_default.woff') format('woff');
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Roboto Condensed Italic'), local('RobotoCondensed-Italic'), url('/assets/googlefont/fonts/Roboto Condensed_italic_400_default.woff') format('woff');
+}
