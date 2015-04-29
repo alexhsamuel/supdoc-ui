@@ -1,7 +1,7 @@
 (angular.module 'supdoc.doc-components')
 
-.controller 'ModuleCtrl', ($scope) ->
-  console.log 'ModuleCtrl ctor'
+.controller 'ModuleDirCtrl', ($scope) ->
+  console.log 'ModuleDirCtrl ctor'
 
 
 .directive 'module', ->

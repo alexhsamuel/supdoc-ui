@@ -29,12 +29,13 @@ module.factory 'api', ($http, $q) ->
           modules[name] = null
         
         gotModuleNames = true
-        n for n of modules
+        (n for n of modules).sort()
 
     get: (name) ->
-      if name of modules
+      if modules[name]
       then $q.when modules[name]
       else (get "/api/modules/#{encodeURI name}").then (data) ->
         module = data.modules[name]
         assert module.name == name, 'got module with wrong name'
+        console.log "got module", module
         modules[name] = module
