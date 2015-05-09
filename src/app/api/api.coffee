@@ -37,5 +37,4 @@ module.factory 'api', ($http, $q) ->
       else (get "/api/modules/#{encodeURI name}").then (data) ->
         module = data.modules[name]
         assert module.name == name, 'got module with wrong name'
-        console.log "got module", module
         modules[name] = module
