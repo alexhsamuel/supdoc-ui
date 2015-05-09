@@ -1,15 +1,15 @@
 <div class="module" ng-controller="ModuleDirCtrl">
-  Module
   <h1>
-    {{doc.name}}
+    Module
+    <span class="name">{{doc.name}}</span>
   </h1>
-  <div class="docstring">
+  <pre class="docstring">
     {{doc.docs.doc}}
-  </div>
+  </pre>
   <div class="dict">
     <ul>
-      <li ng-repeat="(name, objDoc) in doc.dict">
-        {{name}} -> {{objDoc.name}}
+      <li ng-repeat="(name, objDoc) in doc.dict" class="dict-entry">
+        {{name}} -> <span class="repr">{{objDoc.repr}}</span>
       </li>
     </ul>
   </div>
