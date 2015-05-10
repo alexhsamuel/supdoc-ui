@@ -8,8 +8,15 @@
   </pre>
   <div class="dict">
     <ul>
-      <li ng-repeat="(name, objDoc) in doc.dict" class="dict-entry">
-        {{name}} -> <span class="repr">{{objDoc.repr}}</span>
+      <li ng-repeat="(name, objDoc) in doc.dict">
+        <div class="dict-entry">
+          <div>
+            {{name}} -> <span class="repr">{{objDoc.repr}}</span>
+          </div>
+          <pre class="docstring" ng-show="objDoc.docs.doc">
+            {{objDoc.docs.doc.trim()}}
+          </pre>
+        </div>
       </li>
     </ul>
   </div>
