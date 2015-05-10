@@ -10,12 +10,7 @@
     <ul>
       <li ng-repeat="(name, objDoc) in doc.dict">
         <div class="dict-entry">
-          <div>
-            {{name}} -> <span class="repr">{{objDoc.repr}}</span>
-          </div>
-          <pre class="docstring" ng-show="objDoc.docs.doc">
-            {{objDoc.docs.doc.trim()}}
-          </pre>
+          <binding name="{{name}}" doc="objDoc"></binding>
         </div>
       </li>
     </ul>

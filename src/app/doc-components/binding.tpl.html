@@ -1,0 +1,22 @@
+<div class="binding">
+  <div>
+    <span class="name">{{name}}</span>
+    <span ng-if="doc.repr">
+      = <span class="repr">{{doc.repr}}</span>
+    </span>
+  </div>
+  <pre class="docstring" ng-show="doc.docs.doc">
+    {{doc.docs.doc.trim()}}
+  </pre>
+  <div class="dict">
+    <ul>
+      <li ng-repeat="(name, objDoc) in doc.dict">
+        <div class="dict-entry">
+        {{name}}
+        : {{objDoc}}
+          <!--binding name="{{name}}" doc="objDoc"></binding-->
+        </div>
+      </li>
+    </ul>
+  </div>  
+</div>

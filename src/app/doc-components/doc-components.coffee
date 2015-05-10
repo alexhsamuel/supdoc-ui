@@ -1,1 +1,1 @@
-(angular.module 'supdoc.doc-components', [])
+# (angular.module 'supdoc.doc-components', [])
