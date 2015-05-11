@@ -11,7 +11,5 @@
     name: '@'
     doc: '='
   templateUrl: 'doc-components/binding.tpl.html'
-  compile: (element) ->
-    console.log 'RecursionHelper.compile', element
-    RecursionHelper.compile element
+  compile: (element) -> RecursionHelper.compile element
 
