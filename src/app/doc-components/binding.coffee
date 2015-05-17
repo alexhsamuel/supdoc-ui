@@ -12,4 +12,3 @@
     doc: '='
   templateUrl: 'doc-components/binding.tpl.html'
   compile: (element) -> RecursionHelper.compile element
-

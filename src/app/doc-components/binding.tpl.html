@@ -5,6 +5,20 @@
       = <span class="repr">{{doc.repr}}</span>
     </span>
   </div>
+  <div>
+    <span class="name">{{doc.name}}</span>
+    (<span class="name">{{doc.qualname}}</span>)
+    in module <span class="module-name">{{doc.module['$ref']}}</span>
+  </div>
+  <div>
+    type <span class="name">{{doc.type['$ref']}}</span>
+  </div>
+  <div ng-if="doc.bases">
+    bases
+    <span ng-repeat="base in doc.bases">
+      <span class="name">{{base['$ref']}}</span>
+    </span>
+  </div>
   <pre class="docstring" ng-show="doc.docs.doc">
     {{doc.docs.doc.trim()}}
   </pre>
