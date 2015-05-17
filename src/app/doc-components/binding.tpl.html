@@ -1,16 +1,21 @@
 <div class="binding">
   <div>
     <span class="name">{{name}}</span>
+    <span ng-if="doc['$ref']">
+      <i class="fa fa-long-arrow-right"></i> <span class="name">{{doc['$ref']}}</span>
+    </span>
     <span ng-if="doc.repr">
       = <span class="repr">{{doc.repr}}</span>
     </span>
   </div>
   <div>
-    <span class="name">{{doc.name}}</span>
-    (<span class="name">{{doc.qualname}}</span>)
-    in module <span class="module-name">{{doc.module['$ref']}}</span>
+    <span class="name" ng-if="doc.name">{{doc.name}}</span>
+    <span ng-if="doc.qualname">(<span class="name">{{doc.qualname}}</span>)</span>
+    <span ng-if="doc.module">
+      from module <span class="module-name">{{doc.module['$ref']}}</span>
+    </span>
   </div>
-  <div>
+  <div ng-if="doc.type">
     type <span class="name">{{doc.type['$ref']}}</span>
   </div>
   <div ng-if="doc.bases">
