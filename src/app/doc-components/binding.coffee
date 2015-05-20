@@ -1,4 +1,4 @@
-(angular.module 'supdoc.doc-components', ['recursion-helper'])
+(angular.module 'supdoc.doc-components.binding', ['recursion-helper'])
 
 .controller 'BindingDirCtrl', ($scope) ->
   console.log 'BindingDirCtrl ctor'

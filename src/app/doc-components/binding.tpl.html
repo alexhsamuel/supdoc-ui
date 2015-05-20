@@ -2,7 +2,7 @@
   <div>
     <span class="name">{{name}}</span>
     <span ng-if="doc['$ref']">
-      <i class="fa fa-long-arrow-right"></i> <span class="name">{{doc['$ref']}}</span>
+      <i class="fa fa-long-arrow-right"></i> <ref ref="doc['$ref']">
     </span>
     <span ng-if="doc.repr">
       = <span class="repr">{{doc.repr}}</span>
@@ -12,16 +12,17 @@
     <span class="name" ng-if="doc.name">{{doc.name}}</span>
     <span ng-if="doc.qualname">(<span class="name">{{doc.qualname}}</span>)</span>
     <span ng-if="doc.module">
-      from module <span class="module-name">{{doc.module['$ref']}}</span>
+      from module 
+      <ref ref="doc.module['$ref']">
     </span>
   </div>
   <div ng-if="doc.type">
-    type <span class="name">{{doc.type['$ref']}}</span>
+    type <ref ref="doc.type['$ref']">
   </div>
   <div ng-if="doc.bases">
     bases
     <span ng-repeat="base in doc.bases">
-      <span class="name">{{base['$ref']}}</span>
+      <ref ref="base['$ref']">
     </span>
   </div>
   <pre class="docstring" ng-show="doc.docs.doc">

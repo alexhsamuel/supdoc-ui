@@ -1,0 +1,5 @@
+<a href ng-controller="RefDirCtrl" ui-sref="{{sref}}">
+  <span ng-if="module != 'builtins'" class="module-name" >{{module}}</span><!--
+  --><span ng-if="module != 'builtins' && qualname" class="name">.</span><!--
+  --><span ng-if="qualname" class="name">{{qualname}}</span>
+</a>

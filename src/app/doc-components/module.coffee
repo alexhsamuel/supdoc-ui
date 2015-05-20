@@ -1,4 +1,4 @@
-(angular.module 'supdoc.doc-components')
+(angular.module 'supdoc.doc-components.module', [])
 
 .controller 'ModuleDirCtrl', ($scope) ->
   console.log 'ModuleDirCtrl ctor'
