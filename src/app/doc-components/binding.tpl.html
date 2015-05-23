@@ -21,18 +21,26 @@
       <ref ref="doc.module['$ref']">
     </span>
   </div>
-  <div ng-if="doc.type">
-    type <ref ref="doc.type['$ref']">
-  </div>
-  <div ng-if="doc.bases">
-    bases
-    <span ng-repeat="base in doc.bases">
-      <ref ref="base['$ref']">
-    </span>
-  </div>
   <pre class="docstring" ng-show="doc.docs.doc">
     {{doc.docs.doc.trim()}}
   </pre>
+
+  <dl class="dl-horizontal">
+    <dt>type</dt>
+    <dd>&nbsp;<ref ref="doc.type['$ref']"></ref></dd>
+
+    <dt>repr</dt>
+    <dd class="repr">&nbsp;{{doc.repr}}</dd>
+
+    <dt>bases</dt>
+    <dd>&nbsp;
+      <span ng-repeat="base in doc.bases">
+        <ref ref="base['$ref']"></ref>
+      </span>
+    </dd>
+  </div>
+  </dl>
+
   <div class="dict">
     <ul>
       <li ng-repeat="(name, objDoc) in doc.dict">

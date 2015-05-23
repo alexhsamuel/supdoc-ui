@@ -1,7 +1,7 @@
 .binding {
 
   .title {
-    font-size: 130%;
+    font-size: 120%;
     font-weight: 700;
   }
 
@@ -25,6 +25,19 @@
   // Show a comma after each parameter except the last.
   .param-name:not(:last-of-type)::after {
     content: ", ";
+  }
+
+  dl {
+    dt {
+      font-weight: 400;
+      padding: 4px 0.5em 4px 0;
+      border-right: 1px solid #ccc;
+      margin-bottom: 0px;
+    }
+
+    dd {
+      padding: 4px 0;
+    }
   }
 
 }
