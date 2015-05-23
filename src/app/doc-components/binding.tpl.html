@@ -1,6 +1,11 @@
-<div class="binding">
-  <div>
-    <span class="name">{{name}}</span>
+<div class="binding" ng-controller="BindingDirCtrl">
+  <div class="title">
+    <span class="name">{{name}}</span><!--
+    --><span ng-if="signature" class="signature"><!--
+      -->(<span class="param-list"><!--
+        --><span ng-repeat="param in signature" class="param-name">{{param}}</span><!--
+      --></span>)
+    </span>
     <span ng-if="doc['$ref']">
       <i class="fa fa-long-arrow-right"></i> <ref ref="doc['$ref']">
     </span>

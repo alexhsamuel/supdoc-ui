@@ -1,5 +1,10 @@
 .binding {
 
+  .title {
+    font-size: 130%;
+    font-weight: 700;
+  }
+
   .fa-long-arrow-right {
     // Space between arrow and text.
     margin: 0 0.5em;
@@ -8,4 +13,19 @@
     top: 0.08em;
   }
 
+  .signature {
+    .code;
+    margin: 0 0.15em;
+  }
+
+  .param-list {
+    margin: 0 0.15em;
+  }
+
+  // Show a comma after each parameter except the last.
+  .param-name:not(:last-of-type)::after {
+    content: ", ";
+  }
+
 }
+
