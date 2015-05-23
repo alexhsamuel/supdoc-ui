@@ -20,6 +20,15 @@ $ grunt watch
 
 Finally, open `file:///path/to/ng-boilerplate/build/index.html` in your browser.
 
+To run the Python server, in another terminal,
+
+```sh
+$ PATH=$(pwd)/conda/bin:$PATH
+$ python3 src/serve.py --development
+```
+
+Open `http://localhost:5000/ui/modules` in your browser and enable live reload.
+
 Happy hacking!
 
 ## Purpose
