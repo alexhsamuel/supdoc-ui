@@ -23,7 +23,10 @@
       )
     $scope.signature = sig
 
-  if $scope.doc?.type?.$ref
+  # True if this is a reference to something elsewhere.
+  $scope.isRef = $scope.doc.$ref?
+
+  if $scope.doc.type?.$ref?
     type = api.ref.split($scope.doc.type.$ref)
     $scope.isType = type.module == 'builtins' and type.qualname == 'type'
   else

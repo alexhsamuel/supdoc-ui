@@ -25,15 +25,15 @@
     {{doc.docs.doc.trim()}}
   </pre>
 
-  <dl class="dl-horizontal">
+  <dl ng-if="! isRef" class="dl-horizontal">
     <dt>type</dt>
     <dd>&nbsp;<ref ref="doc.type['$ref']"></ref></dd>
 
-    <dt>repr</dt>
-    <dd class="repr">&nbsp;{{doc.repr}}</dd>
+    <dt ng-if="doc.repr">repr</dt>
+    <dd ng-if="doc.repr" class="repr">&nbsp;{{doc.repr}}</dd>
 
-    <dt>bases</dt>
-    <dd>&nbsp;
+    <dt ng-if="doc.bases">bases</dt>
+    <dd ng-if="doc.bases">&nbsp;
       <span ng-repeat="base in doc.bases">
         <ref ref="base['$ref']"></ref>
       </span>
