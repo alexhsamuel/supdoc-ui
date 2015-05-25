@@ -38,3 +38,34 @@ module.factory 'api', ($http, $q) ->
         module = data.modules[name]
         assert module.name == name, 'got module with wrong name'
         modules[name] = module
+
+  ref:
+    
+    # Splits a $ref.
+    #
+    # @return [object]
+    #   With keys `module`, `name`, `qualname`.
+    split: (ref) ->
+      parts = ref.split('/')
+
+      # assert parts[0] == '#'
+      # assert parts[1] == 'modules'
+      module = parts[2]
+      parts = parts[3 ..]
+      name = parts[parts.length - 1]
+
+      qualname = null
+      while parts.length > 0
+        # assert parts[0] == 'dict'
+        if qualname is null
+          qualname = parts[1]
+        else
+          qualname += '.' + parts[1]
+        parts = parts[2 ..]
+      
+      {
+        module: module,
+        qualname: qualname,
+        name: name,
+      }
+
