@@ -2,11 +2,20 @@
   ['recursion-helper', 'supdoc.api'])
 
 .controller 'BindingDirCtrl', ($scope, api) ->
-  if $scope.doc.signature
+  type = api.ref.split($scope.doc.type.$ref) if $scope.doc.type?.$ref
+
+  signature = $scope.doc.signature
+  if (type?.module == 'builtins' and
+      (type.qualname == 'classmethod' or type.qualname == 'staticmethod'))
+    # FIXME: Read through doc too.
+    signature = $scope.doc.func.signature
+
+  $scope.isCallable = signature?
+  if signature?
     # Format the callable's signature.
     star = false
     sig = []
-    for param in $scope.doc.signature
+    for param in signature
       sig.push (
         switch param.kind
           when 'VAR_POSITIONAL' then '*' + param.name
@@ -25,12 +34,7 @@
 
   # True if this is a reference to something elsewhere.
   $scope.isRef = $scope.doc.$ref?
-
-  if $scope.doc.type?.$ref?
-    type = api.ref.split($scope.doc.type.$ref)
-    $scope.isType = type.module == 'builtins' and type.qualname == 'type'
-  else
-    $scope.isType = false
+  $scope.isType = type?.module == 'builtins' and type.qualname == 'type'
 
   # Show the repr if it exists, and this isn't a type or callable.
   $scope.showRepr = $scope.doc.repr? and ! ($scope.isType or $scope.signature?)
