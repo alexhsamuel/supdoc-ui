@@ -3,12 +3,16 @@
 
 .controller 'BindingDirCtrl', ($scope, api) ->
   type = api.ref.split($scope.doc.type.$ref) if $scope.doc.type?.$ref
+  # True if this is a reference to something elsewhere.
+  $scope.isRef = $scope.doc.$ref?
+  $scope.isType = type?.module == 'builtins' and type.qualname == 'type'
 
   signature = $scope.doc.signature
-  if (type?.module == 'builtins' and
-      (type.qualname == 'classmethod' or type.qualname == 'staticmethod'))
-    # FIXME: Read through doc too.
-    signature = $scope.doc.func.signature
+  docs = $scope.doc.docs
+  if $scope.doc.func?
+    # Read through to the wrapped function, e.g. contextmethod, staticethod.
+    signature ?= $scope.doc.func.signature
+    docs ?= $scope.doc.func.docs
 
   $scope.isCallable = signature?
   if signature?
@@ -32,19 +36,10 @@
       )
     $scope.signature = sig
 
-  # True if this is a reference to something elsewhere.
-  $scope.isRef = $scope.doc.$ref?
-  $scope.isType = type?.module == 'builtins' and type.qualname == 'type'
-
   # Show the repr if it exists, and this isn't a type or callable.
-  $scope.showRepr = $scope.doc.repr? and ! ($scope.isType or $scope.signature?)
+  $scope.showRepr = $scope.doc.repr? and ! ($scope.isType or $scope.isCallable)
 
-  # if $scope.doc.type and $scope.doc.type.$ref
-  #   parts = $scope.doc.type.$ref.split('/')
-  # else
-  #   parts = []
-  # console.log parts
-
+  $scope.docs = docs
 
 .directive 'binding', (RecursionHelper) ->
 

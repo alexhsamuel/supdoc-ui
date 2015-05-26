@@ -20,8 +20,8 @@
       <ref ref="doc.module['$ref']">
     </span>
   </div>
-  <pre class="docstring" ng-show="doc.docs.doc">
-    {{doc.docs.doc.trim()}}
+  <pre class="docstring" ng-if="docs.doc">
+    {{docs.doc.trim()}}
   </pre>
 
   <dl ng-if="! isRef" class="dl-horizontal">
