@@ -15,7 +15,6 @@
   </div>
   <div>
     <span class="name" ng-if="doc.name">{{doc.name}}</span>
-    <span ng-if="doc.qualname">(<span class="name">{{doc.qualname}}</span>)</span>
     <span ng-if="doc.module">
       from module 
       <ref ref="doc.module['$ref']">
@@ -28,6 +27,9 @@
   <dl ng-if="! isRef" class="dl-horizontal">
     <dt>type</dt>
     <dd>&nbsp;<ref ref="doc.type['$ref']"></ref></dd>
+
+    <dt ng-if="doc.qualname">qualname</dt>
+    <dd ng-if="doc.qualname">&nbsp;<span class="name">{{doc.qualname}}</span></dd>
 
     <dt ng-if="doc.repr">repr</dt>
     <dd ng-if="doc.repr" class="repr">&nbsp;{{doc.repr}}</dd>
