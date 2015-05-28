@@ -6,6 +6,7 @@
   # True if this is a reference to something elsewhere.
   $scope.isRef = $scope.doc.$ref?
   $scope.isType = type?.module == 'builtins' and type.qualname == 'type'
+  $scope.isProperty = type?.module == 'builtins' and type.qualname == 'property'
 
   signature = $scope.doc.signature
   docs = $scope.doc.docs

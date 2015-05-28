@@ -24,6 +24,18 @@
     {{docs.doc.trim()}}
   </pre>
 
+  <div ng-if="isProperty">
+    <div ng-if="doc.get" class="dict-entry">
+      <binding name="get" doc="doc.get"></binding>
+    </div>
+    <div ng-if="doc.set" class="dict-entry">
+      <binding name="set" doc="doc.set"></binding>
+    </div>
+    <div ng-if="doc.del" class="dict-entry">
+      <binding name="del" doc="doc.del"></binding>
+    </div>
+  </div>
+
   <dl ng-if="! isRef" class="dl-horizontal">
     <dt>type</dt>
     <dd>&nbsp;<ref ref="doc.type['$ref']"></ref></dd>
