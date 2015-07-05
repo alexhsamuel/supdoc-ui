@@ -20,9 +20,7 @@
       <ref ref="doc.module['$ref']">
     </span>
   </div>
-  <pre class="docstring" ng-if="docs.doc">
-    {{docs.doc.trim()}}
-  </pre>
+  <pre class="docstring" ng-if="docs.doc">{{docs.doc.trim()}}</pre>
 
   <div ng-if="isProperty">
     <div ng-if="doc.get" class="dict-entry">
@@ -55,7 +53,7 @@
   </div>
   </dl>
 
-  <div class="dict">
+  <div ng-if="doc.dict" class="dict">
     <ul>
       <li ng-repeat="(name, objDoc) in doc.dict">
         <div class="dict-entry">
