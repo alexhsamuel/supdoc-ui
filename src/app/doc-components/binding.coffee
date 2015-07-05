@@ -38,7 +38,9 @@
     $scope.signature = sig
 
   # Show the repr if it exists, and this isn't a type or callable.
-  $scope.showRepr = $scope.doc.repr? and ! ($scope.isType or $scope.isCallable)
+  $scope.showRepr = (
+    $scope.doc.repr? and
+    ! ($scope.isType or $scope.isCallable or $scope.isProperty))
 
   $scope.docs = docs
 
