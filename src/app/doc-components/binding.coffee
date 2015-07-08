@@ -8,6 +8,17 @@
   $scope.isType = type?.module == 'builtins' and type.qualname == 'type'
   $scope.isProperty = type?.module == 'builtins' and type.qualname == 'property'
 
+  isEmpty = (obj) ->
+    (Object.getOwnPropertyNames obj).length == 0
+
+  $scope.hasDict = () -> $scope.doc.dict and ! isEmpty $scope.doc.dict
+
+  $scope._showDetails = true
+  $scope._showDict = true
+  $scope.showDetails = () -> $scope._showDetails
+  $scope.showDict = () -> $scope._showDict
+  $scope.toggleShowDict = () -> $scope._showDict = ! $scope._showDict
+
   signature = $scope.doc.signature
   docs = $scope.doc.docs
   if $scope.doc.func?

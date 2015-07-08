@@ -34,7 +34,7 @@
     </div>
   </div>
 
-  <dl ng-if="! isRef" class="dl-horizontal">
+  <dl ng-if="! isRef" ng-show="showDetails()" class="dl-horizontal">
     <dt>type</dt>
     <dd>&nbsp;<ref ref="doc.type['$ref']"></ref></dd>
 
@@ -50,11 +50,15 @@
         <ref ref="base['$ref']"></ref>
       </span>
     </dd>
-  </div>
   </dl>
-
-  <div ng-if="doc.dict" class="dict">
-    <ul>
+  
+  <div ng-if="hasDict()" class="dict">
+    <div ng-click="toggleShowDict()">
+      <i ng-if="showDict()" class="fa fa-chevron-down"></i>
+      <i ng-if="! showDict()" class="fa fa-chevron-right"></i>
+      <label>Dict</label>
+    </div>
+    <ul ng-show="showDict()">
       <li ng-repeat="(name, objDoc) in doc.dict">
         <div class="dict-entry">
           <binding name="{{name}}" doc="objDoc"></binding>
