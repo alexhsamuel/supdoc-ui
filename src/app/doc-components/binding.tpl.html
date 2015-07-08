@@ -58,7 +58,7 @@
       <i ng-if="! showDict()" class="fa fa-chevron-right"></i>
       <label>Dict</label>
     </div>
-    <ul ng-show="showDict()">
+    <ul ng-show="showDict()" class="fadeout">
       <li ng-repeat="(name, objDoc) in doc.dict">
         <div class="dict-entry">
           <binding name="{{name}}" doc="objDoc"></binding>

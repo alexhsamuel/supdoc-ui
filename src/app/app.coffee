@@ -1,4 +1,5 @@
 (angular.module 'supdoc', [
+  'ngAnimate'
   'templates-app'
   'templates-common'
   'supdoc.api'
