@@ -40,10 +40,7 @@
 
   <div ng-click="toggleShowDetails()">
     <label>Details</label>
-    <span class="showcaret">
-      <i ng-if="showDetails()" class="fa fa-chevron-down"></i>
-      <i ng-if="! showDetails()" class="fa fa-chevron-right"></i>
-    </span>
+    <span ng-if="! showDetails()">&middot;&middot;&middot;</span>
   </div>
   <dl ng-if="! isRef" ng-show="showDetails()" class="fadeout dl-horizontal">
     <dt>type</dt>
