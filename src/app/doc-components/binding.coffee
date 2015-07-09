@@ -13,11 +13,12 @@
 
   $scope.hasDict = () -> $scope.doc.dict and ! isEmpty $scope.doc.dict
 
+  $scope._showContents = false
   $scope._showDetails = false
-  $scope._showDict = true
   $scope.showDetails = () -> $scope._showDetails
-  $scope.showDict = () -> $scope._showDict
-  $scope.toggleShowDict = () -> $scope._showDict = ! $scope._showDict
+  $scope.showContents = () -> $scope._showContents
+  $scope.toggleShowContents = () ->
+    $scope._showContents = ! $scope._showContents
   $scope.toggleShowDetails  = () -> $scope._showDetails = ! $scope._showDetails
 
   signature = $scope.doc.signature
@@ -50,9 +51,9 @@
     $scope.signature = sig
 
   # Show the repr if it exists, and this isn't a type or callable.
-  $scope.showRepr = (
+  $scope.showRepr = () ->
     $scope.doc.repr? and
-    ! ($scope.isType or $scope.isCallable or $scope.isProperty))
+     ! ($scope.isType or $scope.isCallable or $scope.isProperty)
 
   $scope.docs = docs
 
