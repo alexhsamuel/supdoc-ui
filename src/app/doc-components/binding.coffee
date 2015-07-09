@@ -14,12 +14,9 @@
   $scope.hasDict = () -> $scope.doc.dict and ! isEmpty $scope.doc.dict
 
   $scope._showContents = false
-  $scope._showDetails = false
-  $scope.showDetails = () -> $scope._showDetails
   $scope.showContents = () -> $scope._showContents
   $scope.toggleShowContents = () ->
     $scope._showContents = ! $scope._showContents
-  $scope.toggleShowDetails  = () -> $scope._showDetails = ! $scope._showDetails
 
   signature = $scope.doc.signature
   docs = $scope.doc.docs

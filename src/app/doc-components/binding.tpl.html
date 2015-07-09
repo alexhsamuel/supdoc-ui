@@ -1,8 +1,8 @@
-<div class="binding" ng-controller="BindingDirCtrl">
+<div class="binding" ng-controller="BindingDirCtrl" ng-click="toggleShowContents()">
   <div style="float: right;">
     <ref ref="doc.type['$ref']"></ref>
   </div>
-  <div ng-click="toggleShowContents()">
+  <div>
     <span class="title">
       <span class="name">{{name}}</span><!--
       --><span ng-if="isCallable" class="signature"><!--
@@ -23,7 +23,7 @@
     </span>
   </div>
 
-  <div ng-show="showContents()">
+  <div ng-show="showContents()" class="fadeout">
     <!-- This doesn't add anything, perhaps unless name != doc.name?  -->
   <!--   <div>
       <span class="name" ng-if="doc.name">{{doc.name}}</span>
@@ -48,13 +48,10 @@
       </div>
     </div>
 
-    <div ng-click="toggleShowDetails()">
-      <label class="hover">
-        Details
-        <span ng-if="! showDetails()">&middot; &middot; &middot;</span>
-      </label>
-    </div>
-    <dl ng-if="! isRef" ng-show="showDetails()" class="fadeout dl-horizontal">
+    <label>
+      Details
+    </label>
+    <dl ng-if="! isRef" class="fadeout dl-horizontal">
       <dt>type</dt>
       <dd>&nbsp;<ref ref="doc.type['$ref']"></ref></dd>
 
