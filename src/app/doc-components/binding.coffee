@@ -11,6 +11,7 @@
   isEmpty = (obj) ->
     (Object.getOwnPropertyNames obj).length == 0
 
+  $scope.isRef = () -> angular.isDefined($scope.doc['$ref'])
   $scope.hasDict = () -> $scope.doc.dict and ! isEmpty $scope.doc.dict
 
   $scope._showContents = false

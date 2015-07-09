@@ -15,9 +15,9 @@
       = <span class="repr">{{doc.repr}}</span>
     </span>
     <span>
-      <span ng-if="doc['$ref']">
+      <span ng-if="isRef()">
         <!--<i class="fa fa-long-arrow-right"></i>-->
-        &nbsp;import of
+        &nbsp;alias for
         <ref ref="doc['$ref']"></ref>
       </span>
     </span>
@@ -48,26 +48,28 @@
       </div>
     </div>
 
-    <label>
-      Details
-    </label>
-    <dl ng-if="! isRef" class="fadeout dl-horizontal">
-      <dt>type</dt>
-      <dd>&nbsp;<ref ref="doc.type['$ref']"></ref></dd>
+    <div ng-if="! isRef()">
+      <label>
+        Details
+      </label>
+      <dl ng-if="! isRef" class="fadeout dl-horizontal">
+        <dt>type</dt>
+        <dd>&nbsp;<ref ref="doc.type['$ref']"></ref></dd>
 
-      <dt ng-if="doc.qualname">qualname</dt>
-      <dd ng-if="doc.qualname">&nbsp;<span class="name">{{doc.qualname}}</span></dd>
+        <dt ng-if="doc.qualname">qualname</dt>
+        <dd ng-if="doc.qualname">&nbsp;<span class="name">{{doc.qualname}}</span></dd>
 
-      <dt ng-if="doc.repr">repr</dt>
-      <dd ng-if="doc.repr" class="repr">&nbsp;{{doc.repr}}</dd>
+        <dt ng-if="doc.repr">repr</dt>
+        <dd ng-if="doc.repr" class="repr">&nbsp;{{doc.repr}}</dd>
 
-      <dt ng-if="doc.bases">bases</dt>
-      <dd ng-if="doc.bases">&nbsp;
-        <span ng-repeat="base in doc.bases">
-          <ref ref="base['$ref']"></ref>
-        </span>
-      </dd>
-    </dl>
+        <dt ng-if="doc.bases">bases</dt>
+        <dd ng-if="doc.bases">&nbsp;
+          <span ng-repeat="base in doc.bases">
+            <ref ref="base['$ref']"></ref>
+          </span>
+        </dd>
+      </dl>
+    </div>
     
     <div ng-if="hasDict()" class="dict">
       <label>Dict</label>
