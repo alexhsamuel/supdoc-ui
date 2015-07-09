@@ -1,4 +1,4 @@
-<div class="binding" ng-controller="BindingDirCtrl" ng-click="toggleShowContents()">
+<div class="binding" ng-controller="BindingDirCtrl" ng-click="toggleShowContents(); $event.stopPropagation();">
   <div style="float: right;">
     <ref ref="doc.type['$ref']"></ref>
   </div>
