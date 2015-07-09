@@ -13,13 +13,17 @@
       = <span class="repr">{{doc.repr}}</span>
     </span>
   </div>
-  <div>
+
+  <!-- This doesn't add anything, perhaps unless name != doc.name?  -->
+<!--   <div>
     <span class="name" ng-if="doc.name">{{doc.name}}</span>
     <span ng-if="doc.module">
       from module 
       <ref ref="doc.module['$ref']">
     </span>
   </div>
+ -->
+
   <pre class="docstring" ng-if="docs.doc">{{docs.doc.trim()}}</pre>
 
   <div ng-if="isProperty">
@@ -34,7 +38,14 @@
     </div>
   </div>
 
-  <dl ng-if="! isRef" ng-show="showDetails()" class="dl-horizontal">
+  <div ng-click="toggleShowDetails()">
+    <label>Details</label>
+    <span class="showcaret">
+      <i ng-if="showDetails()" class="fa fa-chevron-down"></i>
+      <i ng-if="! showDetails()" class="fa fa-chevron-right"></i>
+    </span>
+  </div>
+  <dl ng-if="! isRef" ng-show="showDetails()" class="fadeout dl-horizontal">
     <dt>type</dt>
     <dd>&nbsp;<ref ref="doc.type['$ref']"></ref></dd>
 
@@ -54,8 +65,10 @@
   
   <div ng-if="hasDict()" class="dict">
     <div ng-click="toggleShowDict()">
-      <i ng-if="showDict()" class="fa fa-chevron-down"></i>
-      <i ng-if="! showDict()" class="fa fa-chevron-right"></i>
+      <span class="showcaret">
+        <i ng-if="showDict()" class="fa fa-chevron-down"></i>
+        <i ng-if="! showDict()" class="fa fa-chevron-right"></i>
+      </span>
       <label>Dict</label>
     </div>
     <ul ng-show="showDict()" class="fadeout">

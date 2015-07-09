@@ -13,11 +13,12 @@
 
   $scope.hasDict = () -> $scope.doc.dict and ! isEmpty $scope.doc.dict
 
-  $scope._showDetails = true
+  $scope._showDetails = false
   $scope._showDict = true
   $scope.showDetails = () -> $scope._showDetails
   $scope.showDict = () -> $scope._showDict
   $scope.toggleShowDict = () -> $scope._showDict = ! $scope._showDict
+  $scope.toggleShowDetails  = () -> $scope._showDetails = ! $scope._showDetails
 
   signature = $scope.doc.signature
   docs = $scope.doc.docs
