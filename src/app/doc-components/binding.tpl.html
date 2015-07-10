@@ -25,7 +25,7 @@
 
   <div class="docs">
     <div ng-if="docs.summary" class="summary">{{docs.summary}}</div>
-    <div ng-if="docs.bodyHtml" ng-show="showContents()">
+    <div ng-if="docs.bodyHtml" ng-show="showContents()" class="fadeout">
       <div ng-repeat="par in docs.bodyHtml">
         <div ng-bind-html="par"></div>
       </div>
