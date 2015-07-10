@@ -1,7 +1,7 @@
 (angular.module 'supdoc.doc-components.binding',
   ['recursion-helper', 'supdoc.api'])
 
-.controller 'BindingDirCtrl', ($scope, api) ->
+.controller 'BindingDirCtrl', ($scope, $sce, api) ->
   type = api.ref.split($scope.doc.type.$ref) if $scope.doc.type?.$ref
   # True if this is a reference to something elsewhere.
   $scope.isRef = $scope.doc.$ref?
@@ -54,6 +54,13 @@
      ! ($scope.isType or $scope.isCallable or $scope.isProperty)
 
   $scope.docs = docs
+
+  # Docs bodies contain HTML source.  Anoint them as trusted so that they can
+  # be injected into the page.
+  # FIXME: Validate.
+  if docs?.body?
+    docs.bodyHtml = ( ($sce.trustAsHtml p) for p in docs.body )
+
 
 .directive 'binding', (RecursionHelper) ->
 

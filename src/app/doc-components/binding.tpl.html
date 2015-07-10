@@ -1,5 +1,5 @@
 <div class="binding" ng-controller="BindingDirCtrl" ng-click="toggleShowContents(); $event.stopPropagation();">
-  <div style="float: right;">
+  <div ng-if="doc.type['$ref']" style="float: right;">
     <ref ref="doc.type['$ref']"></ref>
   </div>
   <div>
@@ -23,6 +23,15 @@
     </span>
   </div>
 
+  <div class="docs">
+    <div ng-if="docs.summary" class="summary">{{docs.summary}}</div>
+    <div ng-if="docs.bodyHtml" ng-show="showContents()">
+      <div ng-repeat="par in docs.bodyHtml">
+        <div ng-bind-html="par"></div>
+      </div>
+    </div>
+  </div>
+
   <div ng-show="showContents()" class="fadeout">
     <!-- This doesn't add anything, perhaps unless name != doc.name?  -->
   <!--   <div>
@@ -33,8 +42,6 @@
       </span>
     </div>
    -->
-
-    <pre class="docstring" ng-if="docs.doc">{{docs.doc.trim()}}</pre>
 
     <div ng-if="isProperty">
       <div ng-if="doc.get" class="dict-entry">
